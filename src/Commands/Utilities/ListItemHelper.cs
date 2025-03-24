@@ -166,10 +166,10 @@ namespace PnP.PowerShell.Commands.Utilities
                                     var taxSession = clonedContext.Site.GetTaxonomySession();
                                     TaxonomyItem taxonomyItem = null;
                                     bool updateTaxItemValue = true;
-                                    if (value != null && !Guid.TryParse(value as string, out termGuid))
+                                    if (value != null && !Guid.TryParse(value?.ToString(), out termGuid))
                                     {
                                         // Assume it's a TermPath
-                                        taxonomyItem = clonedContext.Site.GetTaxonomyItemByPath(value as string);
+                                        taxonomyItem = clonedContext.Site.GetTaxonomyItemByPath(value?.ToString());
                                         if (taxonomyItem == null)
                                         {
                                             updateTaxItemValue = false;
